@@ -1,5 +1,10 @@
 const express = require("express");
-const fetch = require("node-fetch");
+let fetch;
+if (typeof window === 'undefined') {
+  fetch = require('node-fetch');
+} else {
+  fetch = window.fetch;
+}
 const app = express();
 const port = process.env.PORT || 3001;
 
